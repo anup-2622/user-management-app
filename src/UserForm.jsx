@@ -2,17 +2,20 @@ import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
-const UserForm = ({ onSubmit }) => {
+const UserForm = ({ onSubmit, data }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: data, // Set default values for form fields
+  });
   const submitForm = (data) => {
     onSubmit(data);
   };
   return (
     <div>
+      {/* {console.log(userData)} */}
       <Form onSubmit={handleSubmit(submitForm)}>
         <Form.Group controlId="name">
           <Form.Label>Name</Form.Label>
@@ -27,7 +30,10 @@ const UserForm = ({ onSubmit }) => {
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
-            {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+            {...register("email", {
+              required: true,
+              pattern: /^\S+@\S+$/i,
+            })}
           />
           {errors.email && (
             <span style={{ color: "red", fontSize: "14px" }}>
