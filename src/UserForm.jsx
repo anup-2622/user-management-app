@@ -7,9 +7,7 @@ const UserForm = ({ onSubmit }) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    defaultValues: data, // Set default values for form fields
-  });
+  } = useForm();
   const submitForm = (data) => {
     onSubmit(data);
   };
