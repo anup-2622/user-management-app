@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
-const UserForm = ({ onSubmit, data }) => {
+const UserForm = ({ onSubmit }) => {
   const {
     register,
     handleSubmit,
@@ -15,7 +15,6 @@ const UserForm = ({ onSubmit, data }) => {
   };
   return (
     <div>
-      {/* {console.log(userData)} */}
       <Form onSubmit={handleSubmit(submitForm)}>
         <Form.Group controlId="name">
           <Form.Label>Name</Form.Label>
